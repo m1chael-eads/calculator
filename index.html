@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="styles.css">
-    <script src="calculator.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -11,6 +10,10 @@
     <div class="container">
         <div class="display">
             <button id="clear-button">clear</button>
+            <div id="display-text">
+                <div id="expression"></div>
+                <div id="result"></div>
+            </div>
         </div>
         <div class="keypad">
             <div class="row">
@@ -36,5 +39,6 @@
             </div>
         </div>
     </div>
+    <script src="calculator.js"></script>
 </body>
 </html>

@@ -34,12 +34,20 @@ function operate(op,num1,num2) {
         return divide(num1,num2);
     }
 }
+const expression = document.getElementById('expression');
+expression.classList.add('expression');
+const expText = document.createTextNode("1+1=");
+expression.appendChild(expText);
+const result = document.getElementById('result');
+result.classList.add('result');
+const resText = document.createTextNode('2');
+result.appendChild(resText);
 
-const newDiv = document.createElement("div");
-const text = document.createTextNode("1+1=2");
-newDiv.appendChild(text);
-const location = document.querySelector("display");
-location.appendChild(newDiv);
+
+
+
+
+
 
 console.log(add(5,7));
 console.log(subtract(10,5));
