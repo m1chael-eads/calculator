@@ -6,11 +6,11 @@ operator = "";
 
 const expression = document.getElementById('expression');
 expression.classList.add('expression');
-expText = document.createTextNode("1+1=");
-expression.appendChild(expText);
+expText = document.createTextNode("");
+
 const result = document.getElementById('result');
 result.classList.add('result');
-resText = document.createTextNode('2');
+resText = document.createTextNode('');
 result.appendChild(resText);
 
 function add(num1,num2) {
@@ -50,8 +50,10 @@ function clearDisplay() {
     result.removeChild(result.firstChild);
 }
 
-function numberBtn(button) {
-    console.log(button.textContent);
+function logExpression(button) {
+    number = button.textContent;
+    expText.data += number;
+    expression.appendChild(expText);
     console.log("This function was clicked");
 }
 
