@@ -4,6 +4,15 @@ number1 = 0;
 number2 = 0;
 operator = "";
 
+const expression = document.getElementById('expression');
+expression.classList.add('expression');
+expText = document.createTextNode("1+1=");
+expression.appendChild(expText);
+const result = document.getElementById('result');
+result.classList.add('result');
+resText = document.createTextNode('2');
+result.appendChild(resText);
+
 function add(num1,num2) {
     return num1 + num2;
 }
@@ -34,14 +43,17 @@ function operate(op,num1,num2) {
         return divide(num1,num2);
     }
 }
-const expression = document.getElementById('expression');
-expression.classList.add('expression');
-const expText = document.createTextNode("1+1=");
-expression.appendChild(expText);
-const result = document.getElementById('result');
-result.classList.add('result');
-const resText = document.createTextNode('2');
-result.appendChild(resText);
+
+function clearDisplay() {
+    console.log("Run clearDisplay");
+    expression.removeChild(expression.firstChild);
+    result.removeChild(result.firstChild);
+}
+
+function numberBtn(button) {
+    console.log(button.textContent);
+    console.log("This function was clicked");
+}
 
 
 
