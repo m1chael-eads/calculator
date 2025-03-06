@@ -3,6 +3,7 @@
 number1 = 0;
 number2 = 0;
 operator = "";
+input = "";
 
 function add(num1,num2) {
     return num1 + num2;
@@ -39,19 +40,36 @@ function operate(op,num1,num2) {
 }
 
 function clearDisplay() {
-    expText.data = "";
+    input = "";
     resText.data = "";
 }
 
+
+/* Write a function that displays only a single number at a time on the screen. 
 function logExpression(button) {
     value = button.textContent;
     if (isOperation(value)) {
-        expText.data += " " + value + " ";
+        operator = value;
+        input += " " + value + " ";
     }
     else {
-        expText.data += value;
+        resText.data += value;
+        input += value;
     }
-    expression.appendChild(expText);
+    
+}
+*/
+
+function logExpression(button) {
+    value = button.textContent;
+    if (isOperation(value) && operator == "") {
+        operator = value;
+        number1 = input
+    }
+    else {
+        input += value;
+    }
+    console.log(input);
 }
 
 function isOperation(string) {
@@ -62,16 +80,13 @@ function isOperation(string) {
 }
 
 function evaluateExp() {
-    array = expText.data.split(" ");
+    console.log(input);
+    array = input.split(" ");
     number1 = array[0];
-    operator = array[1];
     number2 = array[2];
     resText.data = operate(operator,number1,number2);
+    input = `${operate(operator,number1,number2)}`;
 }
-
-const expression = document.getElementById('expression');
-expression.classList.add('expression');
-expText = document.createTextNode("");
 
 const result = document.getElementById('result');
 result.classList.add('result');
