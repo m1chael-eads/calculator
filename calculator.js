@@ -45,32 +45,49 @@ function clearDisplay() {
 }
 
 
-/* Write a function that displays only a single number at a time on the screen. 
-function logExpression(button) {
+ 
+function appendToDisplay(button) {
     value = button.textContent;
+    if (isOperation(value)) {
+        input += " " + value + " ";
+    }
+    else {
+        if (input.charAt(input.length-1) == " ") {
+            resText.data = "";
+        }
+        input += value;
+        resText.data += value;
+    }
+    console.log(input);
+}
+
+
+/*function logExpression(button) {
+    value = button.textContent;
+    array = input.split(" ");
+    number1 = array[0];
+    number2 = array[2];
+    if (array.length > 3 && number2 != "") {
+        answer = operate(operator,number1,number2);
+        number1 = answer;
+        operator = "";
+        number2 = 0;
+        input = "";
+    }
     if (isOperation(value)) {
         operator = value;
         input += " " + value + " ";
     }
     else {
-        resText.data += value;
         input += value;
     }
-    
-}
-*/
-
-function logExpression(button) {
-    value = button.textContent;
-    if (isOperation(value) && operator == "") {
-        operator = value;
-        number1 = input
-    }
-    else {
-        input += value;
-    }
-    console.log(input);
-}
+    console.log("input: "+ input);
+    console.log("array: " + array);
+    console.log("array length: " + input.split(" ").length);
+    console.log("num1:" + number1);
+    console.log("operator:" + operator);
+    console.log("num2:" + number2);
+}*/
 
 function isOperation(string) {
     if (string == "+" || string == "-" || string == "x" || string == "%") {
@@ -79,10 +96,10 @@ function isOperation(string) {
     else return false;
 }
 
-function evaluateExp() {
-    console.log(input);
+function calculate() {
     array = input.split(" ");
     number1 = array[0];
+    operator = array[1];
     number2 = array[2];
     resText.data = operate(operator,number1,number2);
     input = `${operate(operator,number1,number2)}`;

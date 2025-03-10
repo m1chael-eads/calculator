@@ -17,25 +17,25 @@
         </div>
         <div class="keypad">
             <div class="row">
-                <button class="button digit" onclick="logExpression(this)">9</button>
-                <button class="button digit" onclick="logExpression(this)">7</button>
-                <button class="button digit" onclick="logExpression(this)">5</button>
-                <button class="button digit" onclick="logExpression(this)">3</button>
-                <button class="button digit" onclick="logExpression(this)">1</button>
+                <button class="button digit" onclick="appendToDisplay(this)">9</button>
+                <button class="button digit" onclick="appendToDisplay(this)">7</button>
+                <button class="button digit" onclick="appendToDisplay(this)">5</button>
+                <button class="button digit" onclick="appendToDisplay(this)">3</button>
+                <button class="button digit" onclick="appendToDisplay(this)">1</button>
             </div>
             <div class="row">
-                <button class="button digit" onclick="logExpression(this)">8</button>
-                <button class="button digit" onclick="logExpression(this)">6</button>
-                <button class="button digit" onclick="logExpression(this)">4</button>
-                <button class="button digit" onclick="logExpression(this)">2</button>
-                <button class="button digit" onclick="logExpression(this)">0</button>
+                <button class="button digit" onclick="appendToDisplay(this)">8</button>
+                <button class="button digit" onclick="appendToDisplay(this)">6</button>
+                <button class="button digit" onclick="appendToDisplay(this)">4</button>
+                <button class="button digit" onclick="appendToDisplay(this)">2</button>
+                <button class="button digit" onclick="appendToDisplay(this)">0</button>
             </div>
             <div class="row">
-                <button class="button operation" onclick="logExpression(this)">+</button>
-                <button class="button operation" onclick="logExpression(this)">-</button>
-                <button class="button operation" onclick="logExpression(this)">x</button>
-                <button class="button operation" onclick="logExpression(this)">%</button>
-                <button class="button equals" onclick="evaluateExp()">=</button>
+                <button class="button operation" onclick="appendToDisplay(this)">+</button>
+                <button class="button operation" onclick="appendToDisplay(this)">-</button>
+                <button class="button operation" onclick="appendToDisplay(this)">x</button>
+                <button class="button operation" onclick="appendToDisplay(this)">%</button>
+                <button class="button equals" onclick="calculate()">=</button>
             </div>
         </div>
     </div>
