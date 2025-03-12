@@ -50,17 +50,15 @@ function calculate() {
     operator = array[1];
     number2 = array[2];
     resText.data = operate(operator,number1,number2);
-    input = `${operate(operator,number1,number2)} ` + operator + ' ';
+    input = `${operate(operator,number1,number2)} ` + `${array[3]} `;
 }
 
 function appendToDisplay(button) {
     value = button.textContent;
     if (isOperation(value)) {
-        if (input.split(" ").length >= 3) {
+        input += " " + value + " ";
+        if (input.split(" ").length > 3) {
             calculate();
-        }
-        else {
-            input += " " + value + " ";
         }
     }
     else {
@@ -70,8 +68,6 @@ function appendToDisplay(button) {
         input += value;
         resText.data += value;
     }
-    console.log(input.split(" "));
-    console.log(input);
 }
 
 function isOperation(string) {
