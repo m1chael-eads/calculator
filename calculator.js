@@ -47,24 +47,32 @@ function clearDisplay() {
 }
 
 function calculate() {
-    number1 = termList[0];
-    operator = termList[1];
-    number2 = termList[2];
-    if (termList.length == 3) {
-        input = operate(operator,number1,number2);
-        termList = [];
-        termList += input;
+    if (termList.length < 3) {
+        resText.data = termList[0];
     }
     else {
-        input = `${operate(operator,number1,number2)}` + ` ` +`${termList[3]} `
-        termList = input.split(" ");
+        number1 = termList[0];
+        operator = termList[1];
+        number2 = termList[2];
+        if (termList.length == 3) {
+            input = operate(operator,number1,number2);
+            termList = [];
+            termList += input;
+        }
+        else {
+            input = `${operate(operator,number1,number2)}` + ` ` +`${termList[3]} `
+            termList = input.split(" ");
+        }
+        resText.data = operate(operator,number1,number2);
     }
-    resText.data = operate(operator,number1,number2);
 }
 
 function appendToDisplay(button) {
     value = button.textContent;
     if (isOperation(value)) {  
+        if (input.charAt(input.length - 1) == " ") {
+            input = input.substring(0,input.length - 3);
+        }
         input += " " + value + " ";
     }
     else {
@@ -75,6 +83,7 @@ function appendToDisplay(button) {
         input += value;
     }
     termList = input.trimEnd().split(" ").filter(element => element);
+    console.log(termList);
     if (termList.length > 3) {calculate();}
 }
 
