@@ -56,15 +56,28 @@ html, body {
 .digit {
     background-color: rgb(185, 185, 185);
 }
+.digit:active {
+    background-color: rgb(224, 222, 222);
+}
  .operation {
     background-color: rgb(206, 206, 206);
 }
-
+.operation:active {
+    background-color: rgb(249, 246, 246);
+}
 .equals {
     background-color: rgb(252, 140, 48);
+}
+.equals:active {
+    background-color: rgb(249, 168, 102);
 }
 
 #clear-button {
     font-size: 30px;
     background-color: rgb(250, 120, 120);
+}
+
+#clear-button:active {
+    font-size: 30px;
+    background-color: rgb(255, 73, 73);
 }
