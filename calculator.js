@@ -1,10 +1,15 @@
 
+/* TODO: Refactor logic for calculate() and appendToDisplay() so that pressing a digit button after 
+performing a calculation doesnt append the digit to the result of the calculation but rather starts a 
+new calculation automatically
+*/
 
 number1 = 0;
 number2 = 0;
 operator = "";
 input = "";
 termList = [];
+prevCalc = false;
 
 function add(num1,num2) {
     return num1 + num2;
@@ -47,6 +52,7 @@ function clearDisplay() {
 }
 
 function calculate() {
+    console.log("calculate() runs");
     if (termList.length < 3) {
         resText.data = termList[0];
     }
@@ -55,7 +61,7 @@ function calculate() {
         operator = termList[1];
         number2 = termList[2];
         if (termList.length == 3) {
-            input = operate(operator,number1,number2);
+            input = `${operate(operator,number1,number2)}`;
             termList = [];
             termList += input;
         }
@@ -65,6 +71,9 @@ function calculate() {
         }
         resText.data = operate(operator,number1,number2);
     }
+    console.log(termList);
+    console.log("termList length: " + termList.length);
+    console.log("input: " + input);
 }
 
 function appendToDisplay(button) {
@@ -84,6 +93,7 @@ function appendToDisplay(button) {
     }
     termList = input.trimEnd().split(" ").filter(element => element);
     console.log(termList);
+    console.log(input);
     if (termList.length > 3) {calculate();}
 }
 
@@ -93,20 +103,6 @@ function isOperation(string) {
     }
     else return false;
 }
-
-function isSimplifyable(input) {
-    console.log("isSimplifyable() runs");
-    array = [];
-    for (char in input) {
-        if (isOperation(input[char])) {
-            array = input.split(input[char]);
-        }
-    }
-    console.log("array: " + array);
-    if (array.length >= 2) {return true;}
-    else {return false;}
-}
-
 
 
 const result = document.getElementById('result');
